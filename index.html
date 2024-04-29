@@ -5,8 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spotify</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="utility.css">
 </head>
 <body>
-  <img src="logo.svg" alt="logo">
+  <div class="container flex bg-black">
+    <div class="left">
+      <div class="home bg-gray rounded p12 m7">
+        <div class="logo"><img src="images/logo.png" alt="logo" height="20px"></div>
+        <ul>
+          <li><img src="images/home.png" alt="home" height="20px">Home</li>
+          <li><img src="images/search.png" alt="search" height="20px">Search</li>
+        </ul>
+      </div>
+      <div class="library bg-gray rounded p12 m7"></div>
+    </div>
+    <div class="right border"></div>
+  </div>
 </body>
 </html>

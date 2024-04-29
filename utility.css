@@ -1,0 +1,29 @@
+.border {
+  border: 2px solid red;
+  margin: 3px;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.rounded {
+  border: 1px solid #121212;
+  border-radius: 8px;
+}
+
+.p12 {
+  padding: 16px;
+}
+
+.m7 {
+  margin: 7px;
+}
