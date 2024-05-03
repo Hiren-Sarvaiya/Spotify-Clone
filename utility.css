@@ -15,6 +15,10 @@
   align-items: center;
 }
 
+.fl-di-col {
+  flex-direction: column;
+}
+
 .rounded {
   border: 1px solid #121212;
   border-radius: 8px;
@@ -24,6 +28,34 @@
   padding: 16px;
 }
 
+.p6 {
+  padding: 6px;
+}
+
 .m7 {
   margin: 7px;
+}
+
+.bg-black {
+  background-color: black;
+  color: white;
+}
+
+.bg-gray {
+  background-color: #121212;
+  color: white;
+}
+
+.hover-glow {
+  color: #b4b4b4;
+  transition: color .2s ease-in-out;
+}
+
+.hover-glow:hover {
+  color: white;
+  transition: color .2s ease-in-out;
+}
+
+.cur-p {
+  cursor: pointer;
 }

@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 * {
   margin: 0px;
   padding: 0px;
-  font-family: sans-serif;
-  font-size: small;
-  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .left {
@@ -23,12 +25,92 @@
   padding-top: 16px;
 }
 
-.bg-black {
-  background-color: black;
-  color: white;
+.library {
+  height: 75vh;
 }
 
-.bg-gray {
-  background-color: #121212;
+.lib-head {
+  justify-content: space-between;
+  padding: 0px 4px;
+  padding-bottom: 4px;
+}
+
+.lib-logo {
+  gap: 12px;
+}
+
+.plus {
+  border: 0px solid red;
+  border-radius: 18px;
+  padding: 6px;
+  transition: background-color .2s ease-in-out;
+}
+
+.plus:hover {
+  background-color: #202020;
+  transition: background-color .2s ease-in-out;
+}
+
+.boxes-container {
+  gap: 20px;
+}
+
+.boxes {
+  background-color: #242424;
+  border: 0px solid;
+  border-radius: 8px;
+  gap: 12px;
+}
+
+.sub-title {
+  font-size: .8rem;
+}
+
+.btn {
+  width: 100px;
+  border: 0px solid;
+  border-radius: 12px;
+  font-size: .9rem;
+  margin-top: 4px;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.b2 {
+  width: 125px;
+}
+
+.links {
+  gap: 8px;
+  margin-top: 60px !important;
+}
+
+.uls {
+  gap: 4px;
+  list-style-type: none;
+}
+
+.uls li a {
+  color: #b4b4b4;
+  text-decoration: none;
+  font-size: .75rem;
+}
+
+.capsule {
+  text-decoration: none;
   color: white;
+  border: .1px solid #b4b4b4;
+  border-radius: 16px;
+  width: 80px;
+  gap: 4px;
+  font-size: .9rem;
+  padding: 4px 1px;
+  margin-top: 20px !important;
+}
+
+.capsule:hover {
+  border: 2px solid white;
+  transform: scale(1.02);
 }
