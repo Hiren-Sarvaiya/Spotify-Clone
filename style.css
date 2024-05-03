@@ -5,11 +5,10 @@
   padding: 0px;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
-  font-size: 14px;
 }
 
 .left {
-  width: max(25vw, 350px);
+  width: max(20vw, 400px);
   margin: 2px;
 }
 
@@ -67,7 +66,7 @@
 }
 
 .btn {
-  width: 100px;
+  width: 125px;
   border: 0px solid;
   border-radius: 12px;
   font-size: .9rem;
@@ -84,7 +83,7 @@
 }
 
 .b2 {
-  width: 125px;
+  width: 150px;
 }
 
 .links {
@@ -176,4 +175,55 @@
 
 .log-in:active {
   background-color: #b4b4b4;
+}
+
+.spotifyPlaylists h1 {
+  margin: 8px 16px 0px;
+}
+
+.spotifyPlaylists h1 a {
+  text-decoration: none;
+  color: white;
+}
+
+.spotifyPlaylists h1 a:hover {
+  text-decoration: underline;
+}
+
+.cardContainer {
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 200px;
+  margin: 16px;
+  position: relative;
+}
+
+.card > * {
+  padding-top: 10px;
+}
+
+.card img {
+  width: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.card .play {
+  background-color: #1ed760;
+  height: 50px;
+  width: 50px;
+  padding: 0px;
+  border-radius: 25px;
+  position: absolute;
+  top: 200px;
+  right: 8px;
+  opacity: 0;
+  transition: all .4s ease-out;
+}
+
+.card .play img {
+  height: 40px;
 }
