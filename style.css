@@ -92,6 +92,7 @@
 
 .right {
   margin: 8px 8px 8px 0px;
+  position: relative;
 }
 
 .right-head {
@@ -203,4 +204,17 @@
 
 .card .play img {
   height: 40px;
+}
+
+.playbar {
+  position: absolute;
+  bottom: 5px;
+  background-color: green;
+  width: 100%;
+  padding: 16px;
+  gap: 160px;
+}
+
+.songbuttons {
+  gap: 16px;
 }
