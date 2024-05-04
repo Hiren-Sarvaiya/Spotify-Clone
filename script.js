@@ -1,4 +1,5 @@
 console.log("script.js is running...");
+let currentSong = new Audio();
 
 async function getSongs() {
   let data = await fetch("http://127.0.0.1:3000/songs/");
@@ -16,26 +17,33 @@ async function getSongs() {
   return songs;
 }
 
+const playMusic = (track) => {
+  // let audio = new Audio("/songs/" + track + ".mp3");
+  // audio.play();
+  currentSong.src = "/songs/" + track + ".mp3";
+  currentSong.play();
+}
+
 (async function main() {
   let songs = await getSongs();
   console.log(songs);
 
   let songOL = document.querySelector(".songList").getElementsByTagName("ol")[0];
   for (const song of songs) {
-    songOL.innerHTML += `<li class="flex items-center cur-p">
-              <img src="images/music.png" height="48px">
-              <div class="info">
-                <div class="sName">${song}</div>
-                <div class="sArtist">Hiren Sarvaiya</div>
-              </div>
-              <img src="images/playsong.png" class="playButton" height="30px">
-            </li>`;
+    songOL.innerHTML += `<li class="flex items-center">
+                          <img src="images/music.png" height="48px">
+                          <div class="info">
+                            <div class="sName">${song}</div>
+                            <div class="sArtist">Hiren Sarvaiya</div>
+                          </div>
+                          <img src="images/playsong.png" class="playButton cur-p" height="30px">
+                        </li>`;
   }
-
-  let audio = new Audio(songs[0]);
-  // audio.play();
-
-  audio.addEventListener("loadeddata", () => {
-    console.log(audio.duration, audio.currentSrc, audio.currentTime);
-  })
+  
+  Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e => {
+    (e.querySelector(".playButton")).addEventListener("click", () => {
+      console.log(e.querySelector(".sName").innerHTML);
+      playMusic(e.querySelector(".sName").innerHTML);
+    })
+  });
 })()
