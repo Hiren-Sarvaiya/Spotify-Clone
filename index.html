@@ -11,7 +11,7 @@
   <div class="container flex bg-black">
     <div class="left">
       <div class="home bg-gray rounded p12 m7">
-        <div class="logo"><img src="images/logo.png" alt="logo" height="20px"></div>
+        <div class="logo"><img src="images/logo.png" alt="logo" height="50px"></div>
         <ul>
           <li class="cur-p"><img src="images/home.png" alt="home" height="20px">Home</li>
           <li class="hover-glow cur-p"><img src="images/search.png" alt="search" height="20px">Search</li>
@@ -26,19 +26,6 @@
           <ol></ol>
         </div>
         <footer class="links p12 flex fl-di-col">
-          <ul class="uls flex ">
-            <li class="cur-p"><a href="#">Legel</a></li>
-            <li class="cur-p"><a href="#">Safety & Privacy Center</a></li>
-            <li class="cur-p"><a href="#">Privacy Policy</a></li>
-            <li class="cur-p"><a href="#">Cookies</a></li>
-          </ul>
-          <ul class="uls flex ">
-            <li class="cur-p"><a href="#">About Ads</a></li>
-            <li class="cur-p"><a href="#">Accessibility</a></li>
-          </ul>
-          <ul class="uls flex">
-            <li><a href="#">Cookies</a></li>
-          </ul>
           <a href="#" class="capsule flex justify-center items-center"><img src="/images/earth.png" height="14px">English</a>
         </footer>
       </div>
@@ -46,8 +33,11 @@
     <div class="right bg-gray rounded">
       <header class="right-head flex p6">
         <div class="arrows flex items-center">
-          <img src="images/left.png" height="16px" class="arrs p6">
-          <img src="images/right.png" height="16px" class="arrs p6">
+          <div class="hamburger">
+            <img src="images/hamburger.png" height="16px">
+          </div>
+          <img src="images/left.png" height="16px" class="arrs p6 cur-p">
+          <img src="images/right.png" height="16px" class="arrs p6 cur-p">
         </div>
         <div class="btns flex items-center">
           <button class="sign-up cur-p">Sign up</button>
@@ -65,14 +55,20 @@
           </div>
         </div>
         <div class="playbar flex fl-di-col justify-center items-center">
-          <div class="songinfo"></div>
-          <div class="songbuttons flex justify-center items-center">
-            <img src="images/previoussong.png" class="cur-p" height="20px">
-            <img src="images/playsong.png" class="cur-p" height="30px">
-            <img src="images/nextsong.png" class="cur-p" height="20px">
+          <div class="upperhalf">
+            <div class="songinfoContainer flex items-center">
+              <div class="songinfo bg-gray p6 flex justify-center items-center"></div>
+            </div>
+            <div class="songbuttons flex justify-center items-center">
+              <img src="images/previoussong.png" id="previoussong" class="cur-p" height="20px">
+              <img src="images/playsong.png" id="playsong" class="cur-p" height="30px">
+              <img src="images/nextsong.png" id="nextsong" class="cur-p" height="20px">
+            </div>
+            <div class="songdurationContainer flex items-center">
+              <div class="songduration bg-gray p6 flex justify-center items-center"></div>
+            </div>
           </div>
-          <div class="songduration"></div>
-          <div class="seekbar">
+          <div class="seekbar cur-p">
             <div class="circle cur-p"></div>
           </div>
         </div>

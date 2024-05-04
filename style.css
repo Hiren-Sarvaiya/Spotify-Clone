@@ -12,7 +12,7 @@
 }
 
 .left {
-  width: 350px;
+  width: 25vw;
   margin: 2px;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .library {
-  height: 76vh;
+  height: 72vh;
   position: relative;
 }
 
@@ -55,24 +55,6 @@
   transition: background-color .2s ease-in-out;
 }
 
-.links {
-  gap: 8px;
-  position: absolute;
-  bottom: 10px;
-}
-
-.uls {
-  gap: 10px;
-  flex-wrap: wrap;
-  list-style-type: none;
-}
-
-.uls li a {
-  color: #b4b4b4;
-  text-decoration: none;
-  font-size: .60rem;
-}
-
 .capsule {
   text-decoration: none;
   color: white;
@@ -82,7 +64,6 @@
   gap: 4px;
   font-size: .9rem;
   padding: 4px 1px;
-  margin-top: 20px !important;
 }
 
 .capsule:hover {
@@ -207,23 +188,25 @@
 }
 
 .playbar {
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  background-color: white;
-  width: 98%;
+  background-color: #191919;
+  width: 73%;
   padding: 10px 0px;
-  gap: 4px;
+  gap: 16px;
   border-radius: 8px;
-  margin: 10px 12px;
+  margin: 20px 10px;
 }
 
 .songbuttons {
   gap: 16px;
+  filter: invert(1);
+  grid-area: btns;
 }
 
 .songList ol {
   padding: 0px 8px;
-  max-height: 325px;
+  max-height: 400px;
   overflow-y: scroll;
 }
 
@@ -254,14 +237,14 @@ li .info .sArtist {
 
 li .info .sName {
   max-height: 20px;
-  max-width: 180px;
-  overflow: hidden; /* Hide any content that overflows the div */
-  white-space: nowrap; /* Prevent the text from wrapping */
+  max-width: 13vw;
+  overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
 }
 
 .seekbar {
-  height: 6px;
+  height: 8px;
   width: 80%;
   background-color: rgb(98, 98, 98);
   border-radius: 8px;
@@ -274,7 +257,68 @@ li .info .sName {
   border-radius: 16px;
   background-color: black;
   position: relative;
-  top: -5px;
+  top: -3px;
   left: 0%;
   transition: left .5s;
+}
+
+.upperhalf {
+  width: 90%;
+  display: grid;
+  grid-template-rows: 40px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "info btns duration";
+}
+
+.songinfo {
+  height: 20px;
+  min-width: 100px;
+  border-radius: 4px;
+  transition: all .5s ease-in-out;
+}
+
+.songduration {
+  height: 20px;
+  width: 100px;
+  grid-area: duration;
+  border-radius: 4px;
+}
+
+.songinfoContainer {
+  grid-area: info;
+  justify-content: end;
+}
+
+.songdurationContainer {
+  grid-area: duration;
+  justify-content: start;
+}
+
+.hamburger {
+  display: none;
+  filter: invert(1);
+}
+
+@media (max-width: 1400px) {
+  .left {
+    position: absolute;
+    left: -100%;
+    transition: all .2s ease-in-out;
+    z-index: 1;
+  }
+
+  .right {
+    width: 100vw;
+    margin: 8px;
+  }
+
+  .playbar {
+    width: 96.5%;
+    margin: 20px 16px;
+  }
+
+  .hamburger {
+    display: block;
+    filter: invert(1);
+  }
 }

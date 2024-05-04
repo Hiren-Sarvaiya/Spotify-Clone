@@ -17,16 +17,34 @@ async function getSongs() {
   return songs;
 }
 
-const playMusic = (track) => {
-  // let audio = new Audio("/songs/" + track + ".mp3");
-  // audio.play();
+const playMusic = (track, pause=false) => {
   currentSong.src = "/songs/" + track + ".mp3";
-  currentSong.play();
+  if (!pause) {
+    currentSong.play();
+    playsong.src = "images/pausesong.png";
+  }
+    document.querySelector(".songinfo").innerHTML = track;
+    document.querySelector(".songduration").innerHTML = `${getTime(currentSong.currentTime)}/00:00`;
+}
+
+const getTime = (seconds) => {
+  if (isNaN(seconds) || seconds < 0) {
+    return "Invalid Input!";
+  }
+
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = Math.floor(seconds % 60);
+
+  const formattedMinutes = String(minutes).padStart(2, '0');
+  const formattedSeconds = String(remainingSeconds).padStart(2, '0');
+
+  return `${formattedMinutes}:${formattedSeconds}`;
 }
 
 (async function main() {
   let songs = await getSongs();
   console.log(songs);
+  playMusic(songs[0], true)
 
   let songOL = document.querySelector(".songList").getElementsByTagName("ol")[0];
   for (const song of songs) {
@@ -46,4 +64,25 @@ const playMusic = (track) => {
       playMusic(e.querySelector(".sName").innerHTML);
     })
   });
+
+  playsong.addEventListener("click", () => {
+    if (currentSong.paused) {
+      currentSong.play();
+      playsong.src = "images/pausesong.png";
+    } else {
+      currentSong.pause();
+      playsong.src = "images/playsong.png";
+    }
+  })
+
+  currentSong.addEventListener("timeupdate", () => {
+    document.querySelector(".songduration").innerHTML = `${getTime(currentSong.currentTime)}/${getTime(currentSong.duration)}`;
+    document.querySelector(".circle").style.left = (currentSong.currentTime / currentSong.duration) * 100 + '%';
+  })
+
+  document.querySelector(".seekbar").addEventListener("click", (e) => {
+    let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
+    document.querySelector(".circle").style.left = percent + '%';
+    currentSong.currentTime = (currentSong.duration * percent) / 100;
+  })
 })()
