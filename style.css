@@ -12,7 +12,7 @@
 }
 
 .left {
-  width: 25vw;
+  width: 350px;
   margin: 2px;
 }
 
@@ -208,13 +208,56 @@
 
 .playbar {
   position: absolute;
-  bottom: 5px;
-  background-color: green;
-  width: 100%;
-  padding: 16px;
+  bottom: 0;
+  background-color: white;
+  width: 98%;
+  padding: 16px 0px;
   gap: 160px;
+  /* border-end-start-radius: 8px;
+  border-end-end-radius: 8px; */
+  border-radius: 8px;
+  margin: 10px 12px;
 }
 
 .songbuttons {
   gap: 16px;
+}
+
+.songList ol {
+  padding: 0px 8px;
+  max-height: 325px;
+  overflow-y: scroll;
+}
+
+.songList ol li {
+  /* display: flex;
+  align-items: center; */
+  gap: 10px;
+  background-color: #191919;
+  padding: 8px;
+  border-radius: 8px;
+  position: relative;
+  margin: 8px 0px;
+}
+
+.songList ol li img {
+  filter: invert(1);
+}
+
+.playButton {
+  position: absolute;
+  right: 8px;
+}
+
+li .info .sArtist {
+  font-size: smaller;
+  padding-top: 4px;
+}
+
+li .info .sName {
+  max-height: 20px;
+  max-width: 180px;
+  overflow: hidden; /* Hide any content that overflows the div */
+  white-space: nowrap; /* Prevent the text from wrapping */
+  text-overflow: ellipsis;
 }
