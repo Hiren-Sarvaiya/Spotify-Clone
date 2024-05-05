@@ -1,8 +1,12 @@
 console.log("script.js is running...");
 let currentSong = new Audio();
+let songs;
+let currentFolder;
 
-async function getSongs() {
-  let data = await fetch("http://127.0.0.1:3000/songs/");
+async function getSongs(folder) {
+  currentFolder = folder;
+  console.log(currentFolder);
+  let data = await fetch(`http://127.0.0.1:3000/${folder}/`);
   let response = await data.text();
   let div = document.createElement("div");
   div.innerHTML = response;
@@ -11,14 +15,14 @@ async function getSongs() {
   for (let index = 0; index < as.length; index++) {
     const element = as[index];
     if (element.href.endsWith(".mp3")) {
-      songs.push(element.href.split("/songs/")[1].replaceAll("%20", " ").replace(".mp3", ""));
+      songs.push(element.href.split(`/${folder}/`)[1].replaceAll("%20", " ").replace(".mp3", ""));
     }
   }
   return songs;
 }
 
 const playMusic = (track, pause=false) => {
-  currentSong.src = "/songs/" + track + ".mp3";
+  currentSong.src = `/${currentFolder}/` + track + ".mp3";
   if (!pause) {
     currentSong.play();
     playsong.src = "images/pausesong.png";
@@ -29,7 +33,7 @@ const playMusic = (track, pause=false) => {
 
 const getTime = (seconds) => {
   if (isNaN(seconds) || seconds < 0) {
-    return "Invalid Input!";
+    return "00:00";
   }
 
   const minutes = Math.floor(seconds / 60);
@@ -42,7 +46,7 @@ const getTime = (seconds) => {
 }
 
 (async function main() {
-  let songs = await getSongs();
+  songs = await getSongs("songs/IDK");
   console.log(songs);
   playMusic(songs[0], true)
 
@@ -84,5 +88,39 @@ const getTime = (seconds) => {
     let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
     document.querySelector(".circle").style.left = percent + '%';
     currentSong.currentTime = (currentSong.duration * percent) / 100;
+  })
+
+  document.querySelector(".hamburger").addEventListener("click", () => {
+    document.querySelector(".left").style.left = '0';
+  })
+
+  document.querySelector(".cross").addEventListener("click", () => {
+    document.querySelector(".left").style.left = "-125%";
+  })
+
+  previoussong.addEventListener("click", () => {
+    let index = songs.indexOf(currentSong.src.split(`/${currentFolder}/`)[1].replaceAll("%20", " ").replace(".mp3", ""));
+    if (songs[index - 1]) {
+      playMusic(songs[index - 1]);
+    } else {
+      playMusic(songs[0]);
+    }
+  })
+
+  nextsong.addEventListener("click", () => {
+    let index = songs.indexOf(currentSong.src.split(`/${currentFolder}/`)[1].replaceAll("%20", " ").replace(".mp3", ""));
+    if (songs[index + 1]) {
+      playMusic(songs[index+1]);
+    } else {
+      playMusic(songs[0]);
+    }
+  })
+
+  document.querySelector(".rangeInput").addEventListener("change", (e) => {
+    currentSong.volume = parseInt(e.target.value) / 100;
+  })
+
+  document.querySelector(".volumebtn").addEventListener("click", () => {
+    document.querySelector(".range").style.display = "block";
   })
 })()
