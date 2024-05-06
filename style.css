@@ -213,7 +213,6 @@
   gap: 16px;
   border-radius: 8px;
   margin: 20px 10px;
-  z-index: 2;
 }
 
 .songbuttons {
@@ -342,7 +341,12 @@ li .info .sName {
     left: -125%;
     transition: all .5s ease-in-out;
     z-index: 1;
-    width: 340px;
+    height: 100vh;
+    width: 90vw;
+  }
+
+  .library {
+    height: 75%;
   }
 
   .right {
@@ -372,7 +376,7 @@ li .info .sName {
 
   .cardContainer {
     justify-content: center;
-    max-height: 75vh;
+    max-height: 70vh;
   }
 
   .card {
@@ -406,7 +410,7 @@ li .info .sName {
 
   .cardContainer {
     margin: 0;
-    max-height: 65vh;
+    max-height: 55vh;
   }
 
   .btns {
@@ -434,5 +438,9 @@ li .info .sName {
 
   .songdurationContainer {
     gap: 8px;
+  }
+
+  .arrows {
+    gap: 4px;
   }
 }
