@@ -59,6 +59,18 @@
   cursor: pointer;
 }
 
+.invert1 {
+  filter: invert(.5);
+}
+
+.invert1:hover {
+  filter: invert(1);
+}
+
+.invert1:active {
+  filter: invert(.5);
+}
+
 /* Apply these styles to the entire document */
 ::-webkit-scrollbar {
   width: 12px; /* Width of the scrollbar */

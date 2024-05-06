@@ -7,6 +7,7 @@
 
 .container {
   height: 100vh;
+  position: fixed;
 }
 
 * {
@@ -217,7 +218,6 @@
 
 .songbuttons {
   gap: 16px;
-  filter: invert(1);
   grid-area: btns;
 }
 
@@ -238,7 +238,7 @@
   margin: 8px 0px;
 }
 
-.songList ol li img {
+.music {
   filter: invert(1);
 }
 
@@ -312,7 +312,6 @@ li .info .sName {
 
 .hamburger {
   display: none;
-  filter: invert(1);
 }
 
 .logoContainer {
@@ -321,12 +320,7 @@ li .info .sName {
 }
 
 .cross {
-  filter: invert(1);
   display: none;
-}
-
-.volumebtn {
-  filter: invert(1);
 }
 
 .volume {
