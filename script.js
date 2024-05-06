@@ -6,7 +6,7 @@ let currentFolder;
 async function getSongs(folder) {
   currentFolder = folder;
   console.log(currentFolder);
-  let data = await fetch(`http://127.0.0.1:3000/${folder}/`);
+  let data = await fetch(`/${folder}/`);
   let response = await data.text();
   let div = document.createElement("div");
   div.innerHTML = response;
@@ -62,18 +62,18 @@ const updateSongList = () => {
 }
 
 async function updateCardContainer() {
-  let data = await fetch(`http://127.0.0.1:3000/songs/`);
+  let data = await fetch(`/songs/`);
   let response = await data.text();
   let div = document.createElement("div");
   div.innerHTML = response;
   let anchors = div.getElementsByTagName("a");
   let cardContainer = document.querySelector(".cardContainer");
-  let array = Array.from(anchors)
+  let array = Array.from(anchors);
   for (let index = 0; index < array.length; index++) {
     const e = array[index];
-    if (e.href.includes("/songs")) {
+    if (e.href.includes("/songs") && !e.href.includes(".htaccess")) {
       let folder = e.href.split("/").slice("-2")[0];
-      let data = await fetch(`http://127.0.0.1:3000/songs/${folder}/folderInfo/info.json`);
+      let data = await fetch(`/songs/${folder}/folderInfo/info.json`);
       let response = await data.json();
 
       cardContainer.innerHTML += `<div data-folder="${folder}" class="card cur-p">
@@ -105,7 +105,7 @@ const addEventListenerToPlayButton = () => {
 }
 
 (async function main() {
-  await getSongs("songs/IDK");
+  await getSongs("songs/Chill");
   console.log(songs);
   playMusic(songs[0], true);
   updateSongList();

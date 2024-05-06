@@ -228,8 +228,6 @@
 }
 
 .songList ol li {
-  /* display: flex;
-  align-items: center; */
   gap: 10px;
   background-color: #191919;
   padding: 8px;
@@ -411,7 +409,30 @@ li .info .sName {
     max-height: 65vh;
   }
 
-  .range {
-    display: none;
+  .btns {
+    gap: 4px;
+    margin: 0;
+  }
+
+  .left {
+    width: 100vw;
+  }
+
+  .upperhalf {
+    grid-template-areas: "info"
+                         "btns"
+                         "duration";
+    width: 90%;
+    grid-template-rows: 40px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .songinfoContainer {
+    justify-content: center;
+  }
+
+  .songdurationContainer {
+    gap: 8px;
   }
 }
