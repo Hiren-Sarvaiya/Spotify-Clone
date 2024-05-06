@@ -384,6 +384,14 @@ li .info .sName {
     margin: 0;
   }
 
+  :root {
+    --top: 102px;
+  }
+
+  .card:hover {
+    --top: 90px;
+  }
+
   .card h2 {
     font-size: 1rem;
   }
@@ -406,6 +414,14 @@ li .info .sName {
   .card {
     width: 75vw;
     margin: 0;
+  }
+
+  :root {
+    --top: 75%;
+  }
+
+  .card:hover {
+    --top: 65%;
   }
 
   .cardContainer {
