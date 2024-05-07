@@ -5,7 +5,6 @@ let currentFolder;
 
 async function getSongs(folder) {
   currentFolder = folder;
-  console.log(currentFolder);
   let data = await fetch(`/${folder}/`);
   let response = await data.text();
   let div = document.createElement("div");
@@ -21,13 +20,20 @@ async function getSongs(folder) {
 }
 
 const playMusic = (track, pause = false) => {
-  currentSong.src = `/${currentFolder}/` + track + ".mp3";
-  if (!pause) {
-    currentSong.play();
-    playsong.src = "images/pausesong.png";
+  if (track) {
+    currentSong.src = `/${currentFolder}/` + track + ".mp3";
+    if (!pause) {
+      currentSong.play();
+      playsong.src = "images/pausesong.png";
+    }
+    document.querySelector(".songinfo").innerHTML = track;
+    document.querySelector(".songduration").innerHTML = `${getTime(currentSong.currentTime)}/00:00`;
+  } else {
+    document.querySelector(".songinfo").innerHTML = "";
+    currentSong.src = "";
+    playsong.src = "images/playsong.png";
+    document.querySelector(".circle").style.left = '0';
   }
-  document.querySelector(".songinfo").innerHTML = track;
-  document.querySelector(".songduration").innerHTML = `${getTime(currentSong.currentTime)}/00:00`;
 }
 
 const getTime = (seconds) => {
@@ -62,7 +68,7 @@ const updateSongList = () => {
 }
 
 async function updateCardContainer() {
-  let data = await fetch(`/songs/`);
+  let data = await fetch("/songs/");
   let response = await data.text();
   let div = document.createElement("div");
   div.innerHTML = response;
@@ -110,7 +116,6 @@ const addEventListenerToPlayButton = () => {
   playMusic(songs[0], true);
   updateSongList();
   updateCardContainer();
-  
   addEventListenerToPlayButton();
 
   playsong.addEventListener("click", () => {

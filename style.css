@@ -417,11 +417,11 @@ li .info .sName {
   }
 
   :root {
-    --top: 75%;
+    --top: 78%;
   }
 
   .card:hover {
-    --top: 65%;
+    --top: 68%;
   }
 
   .cardContainer {
