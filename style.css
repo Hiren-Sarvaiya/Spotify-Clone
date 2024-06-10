@@ -166,7 +166,7 @@
   transition: all .2s ease-out;
 }
 
-.card > * {
+.card>* {
   padding-top: 10px;
 }
 
@@ -440,8 +440,8 @@ li .info .sName {
 
   .upperhalf {
     grid-template-areas: "info"
-                         "btns"
-                         "duration";
+      "btns"
+      "duration";
     width: 90%;
     grid-template-rows: 40px;
     grid-template-columns: 1fr;
